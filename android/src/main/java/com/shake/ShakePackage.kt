@@ -16,20 +16,17 @@ class ShakePackage : TurboReactPackage() {
     }
   }
 
-  override fun getReactModuleInfoProvider(): ReactModuleInfoProvider {
-    return ReactModuleInfoProvider {
-      val moduleInfos: MutableMap<String, ReactModuleInfo> = HashMap()
-      val isTurboModule: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
-      moduleInfos[ShakeModule.NAME] = ReactModuleInfo(
-        ShakeModule.NAME,
-        ShakeModule.NAME,
-        false,  // canOverrideExistingModule
-        false,  // needsEagerInit
-        true,  // hasConstants
-        false,  // isCxxModule
-        isTurboModule // isTurboModule
-      )
-      moduleInfos
-    }
-  }
+ override fun getReactModuleInfoProvider() = ReactModuleInfoProvider {
+   mapOf(
+     ShakeModule.NAME to ReactModuleInfo(
+       ShakeModule.NAME,
+       ShakeModule.NAME,
+       false, // canOverrideExistingModule
+       false, // needsEagerInit
+       true, // hasConstants
+       false, // isCxxModule
+       true // isTurboModule
+     )
+   )
+ }
 }
