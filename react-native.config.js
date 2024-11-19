@@ -9,4 +9,13 @@ module.exports = {
       },
     },
   },
+  project: {
+    codegenConfig: {
+      name: 'NativeShakeSpec',
+      jsSrcsDir: './src',
+      androidDir: './android',
+      androidPackage: 'com.rnshake',
+      libraryName: 'RNShake',
+    },
+  },
 };
